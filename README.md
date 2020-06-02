@@ -13,6 +13,7 @@ Hints:
  - Remember to solve things as simply as possible so that you force yourself to write tests you did not think about
  - Remember to refactor after each passing test
  ![Test case With No Inputs](/timg/Testing_For_Empty_Input.png)
+ ![Test case With Single Input](/timg/Testing_For_Single_Input.png)
 -------
 [ ]Allow the Add method to handle an unknown amount of numbers
 -------
