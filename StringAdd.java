@@ -6,7 +6,7 @@ class WithFunction{
 		String temp="0";
 		// variable to store the sum
 		int sum=0;
-		cter = 0
+		cter = 0;
 		for(int i = 0; i < number.length(); i++) 
 		{ 
 			char ch = number.charAt(i); 
