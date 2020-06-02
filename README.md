@@ -2,11 +2,11 @@
 **It adds numbers in a string**
 It is done using TDD based on the instructions of [TDD KATA-1](https://osherove.com/tdd-kata-1)
 -------
-Create a simple String calculator with a method signature:
+[X] Create a simple String calculator with a method signature:
 
 **int Add(string numbers)**
 -------
-[x]The method can take up to two numbers, separated by commas, and will return their sum. 
+[X]The method can take up to two numbers, separated by commas, and will return their sum. 
 for example “” or “1” or “1,2” as inputs.(for an empty string it will return 0) 
 Hints:
  - Start with the simplest test case of an empty string and move to one and two numbers
@@ -33,5 +33,6 @@ if there are multiple negatives, show all of them in the exception message.
 -------
 [ ]Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
 -------
-[ ] Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.
+[ ] Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.*
+-------
 [ ]make sure you can also handle multiple delimiters with length longer than one char
