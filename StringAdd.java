@@ -2,8 +2,22 @@ import java.util.*;
 
 class WithFunction{
 	int Add(String number){
+		//temp variable to store a single number
+		String temp="0";
 		// variable to store the sum
 		int sum=0;
+		for(int i = 0; i < number.length(); i++) 
+		{ 
+			char ch = number.charAt(i); 
+			
+			// if current character is a digit 
+			if (Character.isDigit(ch)){
+				//the number is added to the number in temp so that multiple digit numbers aren't missed.
+				temp += ch;
+			}
+		}
+		sum += Integer.parseInt(temp);
+		//to add the last digit eg 1,2 then this will add 2 to the sum
 		return sum;
 	}
 }
