@@ -15,8 +15,10 @@ Hints:
  ![Test case With No Inputs](/timg/Testing_For_Empty_Input.png)
  ![Test case With Single Input](/timg/Testing_For_Single_Input.png)
  ![Test case With Two Inputs](/timg/Testing_For_Two_Inputs.png)
+ ![Test case With Non comma seperator](/timg/Testing_For_Inputs_Not_Seperated_by_commas.png)
 -------
-- [ ] Allow the Add method to handle an unknown amount of numbers
+- [X] Allow the Add method to handle an unknown amount of numbers
+ ![Test case With More than two inputs](/timg/Testing_For_More_Than_Two_Inputs.png)
 -------
 - [ ] Allow the Add method to handle new lines between numbers (instead of commas).
  - the following input is ok: “1\n2,3” (will equal 6)

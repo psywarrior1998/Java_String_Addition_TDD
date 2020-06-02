@@ -6,7 +6,6 @@ class WithFunction{
 		String temp="0";
 		// variable to store the sum
 		int sum=0;
-		cter = 0;
 		for(int i = 0; i < number.length(); i++) 
 		{ 
 			char ch = number.charAt(i); 
@@ -17,14 +16,13 @@ class WithFunction{
 				temp += ch;
 			}
 			// if current character is a comma 
-			else if(ch==',' && cter<1)
+			else if(ch==',')
 			{ 
 				// increment sum by number found earlier (if any) 
 				sum += Integer.parseInt(temp); 
 	
 				// reset the temp variable
 				temp = "0";
-				cter+=1;
 			}
 			else{
 				//if the charecter is something other than number or comma
