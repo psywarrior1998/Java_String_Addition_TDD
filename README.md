@@ -20,9 +20,11 @@ Hints:
 - [X] Allow the Add method to handle an unknown amount of numbers
  ![Test case With More than two inputs](/timg/Testing_For_More_Than_Two_Inputs.png)
 -------
-- [ ] Allow the Add method to handle new lines between numbers (instead of commas).
+- [X] Allow the Add method to handle new lines between numbers (instead of commas).
  - the following input is ok: “1\n2,3” (will equal 6)
+ ![Test case With newline as A Delim](/timg/Testing_For_NewLine_As_A_Delim.png)
  - the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
+ ![Test case With Single Input And A Delim](/timg/Testing_For_Single_Input_With_A_Delim.png)
 -------
 - [ ] Support different delimiters
  - to change a delimiter, the beginning of the string will contain a separate line that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’ .
