@@ -2,7 +2,7 @@
 **It adds numbers in a string**
 It is done using TDD based on the instructions of [TDD KATA-1](https://osherove.com/tdd-kata-1)
 -------
-[X] Create a simple String calculator with a method signature:
+- [X] Create a simple String calculator with a method signature:
 
 **int Add(string numbers)**
 -------
@@ -38,7 +38,8 @@ Hints:
 - [X] Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
  ![Test case With numbers above 1000](/timg/Testing_For_Ignoring_Above_Thousand.png)
 -------
-- [ ] Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+- [X] Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+ ![Test case With Delimiters of any length](/timg/Testing_For_Delimiter_with_any_length.png)
 -------
 - [ ] Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.*
 -------

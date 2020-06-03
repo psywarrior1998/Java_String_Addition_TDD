@@ -193,7 +193,7 @@ public class StringAdd{
 			System.out.println("the sum of the numbers is " + sum);
 		}
 		else{
-			System.out.println("The numbers should be seperated by commas or '\\n' (next line) only");
+			System.out.println("The numbers should be seperated by commas or '\\n' (next line) or your custom defined delimiteronly");
 		}
 	}
 }
