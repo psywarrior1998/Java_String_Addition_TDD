@@ -115,7 +115,7 @@ public class StringAdd{
 	{ 
 		String str = "";
 		Scanner scan= new Scanner(System.in);
-		System.out.println("Please enter the string with numbers in the format <number1>,<number2> or <number1>\\n<number2>");
+		System.out.println("Please enter the string with numbers in the format <number1>,<number2> or <number1>\\n<number2> or //<delimiter>\\n<number1><delimiter><number2>");
 		str =  scan.nextLine();
 		WithFunction wf = new WithFunction();
 		int sum=wf.Add(str);
