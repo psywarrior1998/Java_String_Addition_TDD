@@ -31,8 +31,9 @@ Hints:
  - the first line is optional. all existing scenarios should still be supported
  ![Test case with Custom Delimiters](/timg/Testing_For_Custom_Delim.png)
 -------
-- [ ] Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. 
+- [X] Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. 
  - if there are multiple negatives, show all of them in the exception message.
+ ![Test case with negative Numbers in the sequence](/timg/Testing_For_No_Negative_Numbers_Allowed_and_Ignore_them.png)
 -------
 - [ ] Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
 -------
