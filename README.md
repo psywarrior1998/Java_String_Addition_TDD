@@ -26,7 +26,7 @@ Hints:
  - the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
  ![Test case With Single Input And A Delim](/timg/Testing_For_Single_Input_With_A_Delim.png)
 -------
-- [ ] Support different delimiters
+- [X] Support different delimiters
  - to change a delimiter, the beginning of the string will contain a separate line that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’ .
  - the first line is optional. all existing scenarios should still be supported
  ![Test case with Custom Delimiters](/timg/Testing_For_Custom_Delim.png)
