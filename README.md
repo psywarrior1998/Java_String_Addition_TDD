@@ -35,7 +35,8 @@ Hints:
  - if there are multiple negatives, show all of them in the exception message.
  ![Test case with negative Numbers in the sequence](/timg/Testing_For_No_Negative_Numbers_Allowed_and_Ignore_them.png)
 -------
-- [ ] Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
+- [X] Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
+ ![Test case With numbers above 1000](/timg/Testing_For_Ignoring_Above_Thousand.png)
 -------
 - [ ] Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
 -------

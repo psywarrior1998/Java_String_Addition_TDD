@@ -45,7 +45,9 @@ class WithFunction{
 						// checkcing if the charecter sequence is the delim
 						if(cter == delim.length()){
 							// increment sum by number found earlier
-							sum += Integer.parseInt(temp);
+							if(Integer.parseInt(temp)<1000){
+								sum += Integer.parseInt(temp);
+							}
 							// reset the temp variable for the next integer
 							temp = "0";
 							//
@@ -104,8 +106,9 @@ class WithFunction{
 					else if (ch==',' && Character.isDigit(number.charAt(i+1)))
 					{ 
 						// increment sum by number found earlier (if any)
-						sum += Integer.parseInt(temp);
-						
+						if(Integer.parseInt(temp)<1000){
+							sum += Integer.parseInt(temp);
+						}
 						// reset the temp variable for the next integer
 						temp = "0";
 					}
@@ -113,7 +116,9 @@ class WithFunction{
 					// and then a number then add it to the sum
 					else if (ch=='\\' && number.charAt(i+1)=='n' && Character.isDigit(number.charAt(i+2))){
 						i+=1;
-						sum += Integer.parseInt(temp);
+						if(Integer.parseInt(temp)<1000){
+							sum += Integer.parseInt(temp);
+						}
 						// reset the temp variable for the next integer
 						temp = "0";
 					}
@@ -168,7 +173,9 @@ class WithFunction{
 			}
 			System.out.println("Are the negetive numbers in the statement \n they arent allowed so are being ignored");
 		}
-		sum += Integer.parseInt(temp);
+		if(Integer.parseInt(temp)<1000){
+			sum += Integer.parseInt(temp);
+		}
 		//to add the last digit eg 1,2 then this will add 2 to the sum
 		return sum;
 	}
