@@ -1,7 +1,14 @@
-import java.util.*;  
+import java.util.*;
+import java.util.stream.Collectors;
+
 class SomeException extends Exception {
 	SomeException() {
 		super(); 
+	} 
+}
+class WIPException extends Exception {
+	WIPException() {
+		super("Congrats you found our yet not completed feature... wait sometime for it to be active"); 
 	} 
 }
 class WithFunction{
@@ -14,44 +21,95 @@ class WithFunction{
 		if(number.charAt(0)== '/' && number.charAt(1)== '/'){
 			String delim="";
 			int j=2;
-			while(number.charAt(j)!='\\' && number.charAt(j+1)!='n'){
-				delim+=number.charAt(j);
-				j+=1;
-			}
-			j+=2;
-			for(int i = j; i < number.length(); i++) 
-			{ 
-				char ch = number.charAt(i);
-				try{
-					// if current character is a digit			
-					if (Character.isDigit(ch)){
-						//the number is added to the number in temp 
-						// so that multiple digit numbers aren't missed.
-						temp += ch;
+			//checking for [ in string if there are multiple delims
+			if(number.charAt(2)=='['){
+				String delimore=number.substring(3,number.indexOf('\\'));
+				String delimz = "";
+				long cnt = delimore.chars().filter(ch -> ch == ']').count();
+				long a=0;
+				int ca=0;
+				while(a<cnt	 && ca<delimore.length()){
+					if(delimore.charAt(ca)=='['){
+						ca+=1;
+						delimz+="|";
 					}
-					// if current character is starting letter of deliminator
-					else if (ch==delim.charAt(0) && Character.isDigit(number.charAt(i+(delim.length()))))
-					{
-						int cter = 1;
-						for(int k=1;k<delim.length(); k++)
+					else if(delimore.charAt(ca)==']'){
+						ca+=1;
+					}
+					else {
+						delimz+=delimore.charAt(ca);
+						ca+=1;
+						a+=1;
+					}
+				}
+				String aaa=number.split("\\\\n")[1];
+				String seque = number;
+				List<String> seq= Arrays.asList(aaa.split(delimz));
+				List<Integer> sumi= seq.stream().map(s -> Integer.parseInt(s)).collect(Collectors.toList());
+				List<Integer> loi= new ArrayList<Integer>(sumi);
+				sumi.removeIf(x -> x<0|x>1000);
+				loi.removeIf(x->x>0);
+				neglist=loi;
+				sum=sumi.stream().mapToInt(Integer::intValue).sum();
+			}
+			else{
+				delim=number.substring(2,number.indexOf('\\'));
+				j+=2+delim.length();
+				for(int i = j; i < number.length(); i++) 
+				{ 
+					char ch = number.charAt(i);
+					try{
+						// if current character is a digit			
+						if (Character.isDigit(ch)){
+							//the number is added to the number in temp 
+							// so that multiple digit numbers aren't missed.
+							temp += ch;
+						}
+						// if current character is starting letter of deliminator
+						else if (ch==delim.charAt(0) && Character.isDigit(number.charAt(i+(delim.length()))))
 						{
-							if(number.charAt(i+k)==delim.charAt(k)){
-								cter += 1;
+							int cter = 1;
+							for(int k=1;k<delim.length(); k++)
+							{
+								if(number.charAt(i+k)==delim.charAt(k)){
+									cter += 1;
+								}
+								else{
+									break;
+								}
+							}
+							// checkcing if the charecter sequence is the delim
+							if(cter == delim.length()){
+								// increment sum by number found earlier
+								if(Integer.parseInt(temp)<1000){
+									sum += Integer.parseInt(temp);
+								}
+								// reset the temp variable for the next integer
+								temp = "0";
+								//
+								i+=delim.length()-1;
 							}
 							else{
+								//if the charecter is something other than the deliminator
+								sum=-1;
+								temp="0";
 								break;
 							}
 						}
-						// checkcing if the charecter sequence is the delim
-						if(cter == delim.length()){
-							// increment sum by number found earlier
-							if(Integer.parseInt(temp)<1000){
-								sum += Integer.parseInt(temp);
+						else if(number.charAt(i+(delim.length()))=='-'){
+							int init=i+(delim.length())+1;
+							String tn="";
+							try{
+								while(Character.isDigit(number.charAt(init))){
+									tn+=number.charAt(init);
+									init+=1;
+								}
 							}
-							// reset the temp variable for the next integer
-							temp = "0";
-							//
-							i+=delim.length()-1;
+							catch(StringIndexOutOfBoundsException e){
+							}
+							i=init-1;
+							neglist.add(Integer.parseInt('-'+tn));
+							throw new SomeException();
 						}
 						else{
 							//if the charecter is something other than the deliminator
@@ -60,36 +118,14 @@ class WithFunction{
 							break;
 						}
 					}
-					else if(number.charAt(i+(delim.length()))=='-'){
-						int init=i+(delim.length())+1;
-						String tn="";
-						try{
-							while(Character.isDigit(number.charAt(init))){
-								tn+=number.charAt(init);
-								init+=1;
-							}
-						}
-						catch(StringIndexOutOfBoundsException e){
-						}
-						i=init-1;
-						neglist.add(Integer.parseInt('-'+tn));
-						throw new SomeException();
+					catch(SomeException s){
 					}
-					else{
-						//if the charecter is something other than the deliminator
-						sum=-1;
-						temp="0";
-						break;
+					catch(StringIndexOutOfBoundsException e){
+						System.out.println("deliminators must be succeded by numbers");
+						e.printStackTrace();
 					}
-				}
-				catch(SomeException s){
-				}
-				catch(StringIndexOutOfBoundsException e){
-					System.out.println("deliminators must be succeded by numbers");
-					e.printStackTrace();
 				}
 			}
-			
 		}
 		else{
 			for(int i = 0; i < number.length(); i++) 
@@ -185,12 +221,12 @@ public class StringAdd{
 	{ 
 		String str = "";
 		Scanner scan= new Scanner(System.in);
-		System.out.println("Please enter the string with numbers in the format <number1>,<number2> or <number1>\\n<number2> or //<delimiter>\\n<number1><delimiter><number2>");
+		System.out.println("Please enter the string with numbers in the format\n<number1>,<number2> or <number1>\\n<number2> or //<delimiter>\\n<number1><delimiter><number2> \n//[<delimiter1>][<delimiter2>]\\n<number1><delimiter><number2><delimiter><number3>");
 		str =  scan.nextLine();
 		WithFunction wf = new WithFunction();
 		int sum=wf.Add(str);
 		if(sum!=-1){
-			System.out.println("the sum of the numbers is " + sum);
+			System.out.println("The sum of the numbers is " + sum);
 		}
 		else{
 			System.out.println("The numbers should be seperated by commas or '\\n' (next line) or your custom defined delimiteronly");
