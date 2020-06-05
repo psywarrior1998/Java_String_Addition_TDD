@@ -41,6 +41,8 @@ Hints:
 - [X] Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//\[\*\*\*\]\n1\*\*\*2\*\*\*3” should return 6
  ![Test case With Delimiters of any length](/timg/Testing_For_Delimiter_with_any_length.png)
 -------
-- [ ] Allow multiple delimiters like this: “//\[delim1]\[delim2]\n” for example “//\[\*\]\[%\]\n1\*2%3” should return 6.
+- [X] Allow multiple delimiters like this: “//\[delim1]\[delim2]\n” for example “//\[\*\]\[%\]\n1\*2%3” should return 6.
+ ![Test case With Multiple Single Charecter Delimiters](/timg/Testing_For_Multiple_Custom_Delim.png)
 -------
-- [ ] Make sure you can also handle multiple delimiters with length longer than one char
+- [X] Make sure you can also handle multiple delimiters with length longer than one char
+ ![Test case With Multiple Multi Charecter Delimiters](/timg/Testing_For_Multiple_muticharecter_Custom_Delim.png)
